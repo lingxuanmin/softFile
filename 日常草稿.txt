@@ -1,0 +1,95 @@
+http://msdn.itellyou.cn/
+
+矢量图转化成字体图标：http://iconfont.cn/
+中心UED服务器地址：\\10.27.17.75\，所有密码为suning@123
+\\10.24.11.57\zhai
+
+前端通用平台：http://ued.cnsuning.com/f2e/general.html
+
+栅栏系统：960.gs
+
+妙味课堂：http://www.miaov.com/2013/miaovideo/miaovideo.html
+	http://www.miaov.com/2013/download/video_download.html
+
+=会议室预定系统：http://ued.cnsuning.com/meetingroom/#room_5_110
+
+
+防止ie6抖动  html { _background-image: url(about:blank); _background-attachment: fixed;}
+
+新公共头尾：    http://svncode.cnsuning.com/svn/B2C6_code/SNpublishCenter_code/branches/PRFS_V3.0.6/include
+		http://svncode.cnsuning.com/svn/B2C6_code/SNpublishCenter_code/branches/PRFS_V3.0.6/public
+
+
+打包流程：到项目文件夹下，1.执行npm install grunt 2.执行grunt 3.到pubDev下提交对应项目
+gulp开服务:1.npm install -d   安装依赖包文件  2.gulp  3.gulp serve
+
+创建：fas create
+
+
+
+css中的position属性有哪些值？它们的表现上有什么差异？它们的定位原点或定位基准分别是什么？
+  static:默认值，不定位
+  fixed:浏览器窗口;
+  relative:父层dom
+  absolute:最近relative或absolute父层
+  inherit:从父元素继承值
+  initial:跟inherit类似
+<dt>中只能使用inline元素和文本，<dd>元素中却能使用行内元素、块元素和文本
+
+
+API大全：http://api.jq-school.com/
+
+灵轩小铺：http://wd.suning.com/wd-web-in/storeInfo.htm
+
+http://www.uis.cc/list-9-1.html
+
+最新在线API：http://api.jquery.com/
+
+移动端手势专辑：http://hammerjs.github.io/
+
+移动元素用法：http://www.cnblogs.com/mq0036/p/3934821.html
+
+多看阅读：duokan.com
+账号：18551633698 xiaoyu1tiao!
+新头尾：http://192.168.130.17/svn/B2C6_code/SNpublishCenter_code/branches/PRFS_V3.4.6
+
+
+查看图片大小位置信息：http://css.v2bo.com/ 
+
+https://zh.airbnb.com/?af=15514385&c=baidu_brd_brandzone_demand_logo_p1&src=Baidu&medium=PPC&ag_kwid=2299-36-b9a3cd0b367d69d7.82324f20c3583fb8
+
+除湿：：
+素食 用薏米红豆汤或锅巴  小米粥  运动  生姜泡脚（半小时） 冬瓜
+
+神色晦暗、精神不足，甚至心悸、贪睡、心中空虚：薏米红豆加桂圆
+烦躁失眠，或者脸上起红疹、痘痘：薏米红豆加百合、莲子
+胃中寒痛、食欲不佳、怕冷：薏米红豆加生姜
+肾虚：薏米红豆加黑豆
+脚气：薏米红豆加黄豆
+咳嗽：意米红豆加梨
+食欲不振、身体羸瘦：薏米红豆加山药
+泄泻、腹痛、糖尿病：薏米红豆加南瓜
+体虚、早泄、夜尿过多：薏米红豆加芡实
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

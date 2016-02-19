@@ -1,0 +1,324 @@
+﻿移动端JS
+1.判断设备是否支持touch事件
+  touch:('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch),
+  
+2.resize方法
+实在window上执行的window.addEventListener("resize",function,false); 或者 EventUtil.addHandler("window","resize",function);
+
+3.scroll事件也是在window上执行的。
+
+4.焦点事件focus和blur不冒泡。
+
+5.鼠标事件基本都是冒泡的，只有mouseenter和mouseleave。
+mousedown+mouseup=click    click+click = dbclick   mousewheel:鼠标滚轮事件里面的event.wheelDelta是120或-120的倍数。 
+H5中是DOMMouseScroll:EventUtil.addHandler(document,"DOMMouseScroll",function);
+检测浏览器是否支持鼠标事件：var isSupported = document.implementation.hasFeature("MouseEvent","3.0");
+6.键盘事件
+keydown --- keypress ---keyup   
+box.keydown(function(e){e.keyCode; e.charCode});
+textInput:在输入区输入字符时触发。
+		event.data:输入的值
+		event.inputMethod:通过什么输入的
+7.DOM节点变动事件  如DOMNodeRemoved  有删除dom节点时触发  DOMAttrMOdifued 节点属性修改时触发
+
+
+8.iframe父子之前的通信：$(".ui-me-content", parent.document).height();
+
+NODE.js学习笔记
+1、 node  控制台
+2. node a.js  执行a.js
+
+
+== 会进行自动类型转换，而===不会
+node.js 的基本类型：Boolean String Number  RegExp Buffer(数据存储)
+沙京东账户：911940244@qq.com/czszl17720
+
+
+git常用命令
+git clone 文件路径
+git add 文件名
+git commit -m '提交日志'
+$ git remote origin http://fed.cnsuning.com:9000/zhuxiaomin/seekTreasure.git  
+git remote -v
+git push origin master
+
+
+
+步骤：：
+初始化一个Git仓库，使用git init命令。
+
+添加文件到Git仓库，分两步：
+第一步，使用命令git add <file>，注意，可反复多次使用，添加多个文件；
+
+第二步，使用命令git commit - m 'zhushi'，完成。
+
+删除本地仓库文件也是分两步：
+2-1.git rm test.txt
+2-2.git commit -m 'jj'
+2-3.git push origin master
+
+git status  // 查看当前仓库的变化
+
+初始化一个Git仓库，使用git init命令。
+
+添加文件到Git仓库，分两步：
+
+第一步，使用命令git add <file>，注意，可反复多次使用，添加多个文件；
+
+第二步，使用命令git commit，完成。
+
+HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id。
+
+穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
+
+要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
+
+要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；
+
+关联后，使用命令git push -u origin master第一次推送master分支的所有内容；
+
+此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+
+要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆。
+
+Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。
+
+Git鼓励大量使用分支：
+
+查看分支：git branch
+
+创建分支：git branch <name>
+
+切换分支：git checkout <name>
+
+创建+切换分支：git checkout -b <name>
+
+合并某分支到当前分支：git merge <name>
+
+删除分支：git branch -d <name>
+
+
+
+9.你做的页面在哪些流览器测试过？这些浏览器的内核分别是什么?
+Ie(Ie内核)  火狐（Gecko） 谷歌（webkit） opear(Presto)
+
+10.写出几种IE6 BUG的解决方法
+1.双边距BUG float引起的  使用display:inline
+2.3像素问题 使用float引起的 一个浮动元素与不浮动元素并列，ie6下有一个3px的间距 解决方法：1.写个_margin-right:-3px 2.都加上float
+3.超链接hover 点击后失效  使用正确的书写顺序 link visited hover active
+4.Ie z-index问题 给父级添加position:relative：  子元素的z-index是相对父元素的，在父元素（有position）上加z-index。 relative的z-index是递增的。
+5.Png 透明 使用js代码 改：DD_belatedPNG.fix(".header .logo img");
+6.Min-height 最小高度 ！Important 解决’
+7.select 在ie6下遮盖 使用iframe嵌套，但z-index要设为负数
+8.为什么没有办法定义1px左右的宽度容器（IE6默认的行高造成的，使用over:hidden,zoom:0.08 line-height:1px）
+
+
+1.常用的css reset  原因：各种浏览器对css的默认样式不一样。
+css sprites（雪碧图）Css 精灵 把一堆小的图片整合到一张大的图片上，减轻服务器对图片的请求数量
+浏览器解析CSS的两种模式：标准模式(strict mode)和怪异模式(quirks mode)  http://www.cnblogs.com/jenry/archive/2013/01/05/2846557.html
+
+1.javascript的typeof返回哪些数据类型
+Object number function boolean underfind
+
+2.例举3种强制类型转换和2种隐式类型转换？
+强制（parseInt,parseFloat,number）
+隐式（== - ===）
+=== 比较值和类型是否相同 不会自动类型装换
+
+3.split() join() 的区别
+前者是切割成数组的形式，后者是将数组转换成字符串
+
+4.数组方法pop() push() unshift() shift()
+Push()尾部添加 pop()尾部删除
+Unshift()头部添加  shift()头部删除(unshift:返回新数组的长度)
+
+5.事件绑定和普通事件有什么区别
+普通添加事件的方法不支持添加多个事件，最下面的事件会覆盖上面的，而事件绑定（addEventListener）方式添加事件可以添加多个。
+但是addEventListener不兼容低版本IE，使用addEventListener添加事件之前，请先处理兼容问题，这里就不展开讨论了。
+
+6.call和apply的区别
+调用一个对象的一个方法，以另一个对象替换当前对象。 
+实现继承   在一个对象中用另一个对象的方法
+区别在于参数不一样，apply的第二个参数必须是个数组
+Object.call(this,obj1,obj2,obj3)
+Object.apply(this,arguments)
+
+
+10.ajax请求时，如何解释json数据
+使用eval parse 鉴于安全性考虑 使用parse更靠谱
+
+
+html节点的样式分为：浏览器默认样式、引用样式(引用外部css文件的样式、style标签内定义的样式)、行间样式(节点style属性定义的样式)
+
+NaN与任何类型都不相等，包括它自身
+
+14.闭包是什么，有什么特性，对页面有什么影响
+闭包就是能够读取其他函数内部变量的函数。
+http://blog.csdn.net/gaoshanwudi/article/details/7355794
+匿名函数的执行环境具有全局性，它的this相当于window
+
+
+
+
+&&运算符：NaN&&1==1----NaN   类似的还有null undefined
+||运算符：NaN || NaN----NaN  类似的还有null undefined
+
+
+数组的用法：
+··添加元素                                    删除元素
+	push				       pop（堆栈方法）
+	unshift				       shift（队列方法）
+	concat（两个数组合并）
+	reverse：顺序反过来
+	sort（）排序
+	silce 截取数组  返回一个新的数组：array1.slice(start,end) end可以不写，标示截取到最后， 返回新数组 ，原来的数组不变
+	splice:删除或插入数组  返回删除的部分  原数组会发生变化arrayObject.splice(index（开始位置）,ho wmany删除的条数,item1,.....,itemX插入的内容)
+
+
+
+1.SPA:单页面（Single Page Application）：响应时间减至最小.
+单页面应用（SPA）是旨在对Web应用发动革命的软件运动中可信度很高的一种。此类应用有望进行更加模块化的开发，令应用更加容易地适配与多个设备，并拥有更好的应用生命周期管理—这些几乎是软件架构师希望的全部
+
+
+
+2.cdn缓存：同一个请求只有第一次请求服务器 ，其余都是在cdn缓存（服务器）加快了客户相应时间 减少了原服务器的负载。
+设置：max-age（单位是s）  cache-control  cache-directive
+Expires 头部字段提供一个日期和时间，响应在该日期和时间后被认为失效。   “Expires: Sun, 08 Nov 2009 03:37:26 GMT”
+
+3.分布式：苏宁模式  请求分散到多个服务器   负载均衡 
+
+
+HTTP状态码：1.消息  2开头：成功  3：重定向  4:请求错误  5：服务器错误
+200 201：成功创建 202：请求尚未处理  
+302：资源临时从不同的URI相应请求 304：没有改变页面不刷新 无返回body 305：有代理 
+400：请求语义有错  403：服务器理解请求但拒绝执行  404：找不到资源 408：请求超时  409：冲突  410：过时413：服务器拒绝当前请求
+500：服务器遇到未曾预料的状况 502：bad Gateway 503:服务器当前无法处理请求  504：网关请求超时
+
+
+SeaJS：
+SeaJS是一个遵循CommonJS规范的JavaScript模块加载框架，可以实现JavaScript的模块化开发及加载机制。
+
+RequireJS 遵循的是 AMD（异步模块定义）规范，SeaJS 遵循的是 CMD （通用模块定义）规范
+
+
+Retina屏幕的物理分辨率(native resolution)是2880 x 1800,在任何时候，物理分辨率是不变的。
+
+
+BOM（浏览器对象模型）：
+window对象（BOM核心对象）  location对象（导航功能） navigator对象(检测设备信息浏览器版本) screen对象  history对象
+弹框方法都是window下的对象screen.availTop  
+navigator.userAgent浏览器的用户代理字符串
+
+
+cookie与localstorage区别：
+
+cookie机制采用的是在客户端保持状态的方案，而session机制采用的是在服务器端保持状态的方案。
+HTML5的本地存储是使用localStorage对象将WEB数据持久化在本地。
+HTML5本地存储中每个域的存储大小默认是5M，比起Cookie的4K要大的多。而且存储和读取数据的代码极为简练： 
+
+Window.localStorage.setItem(key,value);//存储数据 
+Window.localStorage.getItem(key);//读取数据 
+Window.localStorage.removeItem(key);//删除数据项 
+Window.localStorage.clear();//删除所有数据 
+
+
+
+
+cookie 和session 的区别：
+
+1、cookie数据存放在客户的浏览器上，session数据放在服务器上。
+
+2、cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗
+   考虑到安全应当使用session。
+
+3、session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能
+   考虑到减轻服务器性能方面，应当使用COOKIE。
+
+4、单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。
+
+5、所以个人建议：
+   将登陆信息等重要信息存放为SESSION
+   其他信息如果需要保留，可以放在COOKIE中
+
+attr（js）和prop（jq）属性的区别：
+prop的性能更高，因为attr需要访问DOM属性节点，访问DOM是最耗时的
+1.添加属性名称该属性就会生效应该使用prop();2.是有true,false两个属性使用prop();3.其他则使用attr();
+attr操作在dom节点里面有变化，prop在dom里面没有变化，遇到要获取或设置checked,selected,readonly和disabled等属性时，用prop方法显然更好
+
+
+jsonp跨域原理：JSONP跨域GET请求是一个常用的解决方案
+
+：首先在客户端注册一个callback, 然后把callback的名字传给服务器。此时，服务器先生成 json 数据。 然后以 javascript 语法的方式，生成一个function , function 名字就是传递上来的参数 jsonp。最后将 json 数据直接以入参的方式，放置到 function 中，这样就生成了一段 js 语法的文档，返回给客户端。 
+
+客户端浏览器，解析script标签，并执行返回的 javascript 文档，此时数据作为参数，传入到了客户端预先定义好的 callback 函数里。（动态执行回调函数）
+
+json：同源策略  通过XMLHttpRequest实现的Ajax请求 
+
+
+态性是指允许不同类的对象对同一消息作出响应。多态性包括参数化多态性和包含多态性。 多态有两种表现形式：重载和覆盖
+
+浏览器原理:
+4.HTML页面加载和解析流程
+1.用户输入网址（假设是个html页面，并且是第一次访问），浏览器向服务器发出请求，服务器返回html文件； 
+2.浏览器开始载入html代码，发现＜head＞标签内有一个＜link＞标签引用外部CSS文件； 
+3.浏览器又发出CSS文件的请求，服务器返回这个CSS文件； 
+4.浏览器继续载入html中＜body＞部分的代码，并且CSS文件已经拿到手了，可以开始渲染页面了； 
+5.浏览器在代码中发现一个＜img＞标签引用了一张图片，向服务器发出请求。此时浏览器不会等到图片下载完，而是继续渲染后面的代码； 
+6.服务器返回图片文件，由于图片占用了一定面积，影响了后面段落的排布，因此浏览器需要回过头来重新渲染这部分代码； 
+7.浏览器发现了一个包含一行Javascript代码的＜script＞标签，赶快运行它； 
+8.Javascript脚本执行了这条语句，它命令浏览器隐藏掉代码中的某个＜div＞ （style.display=”none”）。杯具啊，突然就少了这么一个元素，浏览器不得不重新渲染这部分代码； 
+9.终于等到了＜/html＞的到来，浏览器泪流满面…… 
+10.等等，还没完，用户点了一下界面中的“换肤”按钮，Javascript让浏览器换了一下＜link＞标签的CSS路径； 
+11.浏览器召集了在座的各位＜div＞＜span＞＜ul＞＜li＞们，“大伙儿收拾收拾行李，咱得重新来过……”，浏览器向服务器请求了新的CSS文件，重新渲染页面。
+
+
+
+jQuery 中的 Deferred 和 Promises    $.when() $.then() jQuery延时实现的核心是jQuery.Deferred：一个可以链式调用的构造函数。…… 需要注意的是任何deferred对象的默认状态是unresolved， 回调会通过 .then() 、 .fail()等方法添加到队列，并在稍后的过程中被执行。
+
+
+响应式Web设计:就是利用CSS3的 媒体查询Media Queries和Viewport来解决问题的。      (http://www.5icool.org/a/201309/a2517.html)
+1、通过link标签：
+<link rel="stylesheet" type="text/css" media="screen and (max-width: 479px)" href="testcssbywidth1.css" />
+    
+示例代码代表当当前屏幕宽度小于479px的时候，加载testcssbywidth1.css文件来渲染页面。
+2、CSS中直接设置：
+@media screen and (max-width:479px) {
+    　　/* 具体的CSS属性设置 */
+　　}    
+2.<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, malximum-scale=1.0, user-scaable=no" />
+
+
+jQuery 和 Zepto的差距：
+width() / height()
+Zepto.js: 由盒模型（ box-sizing ）决定
+jQery: 忽略盒模型，始终返回内容区域的宽/高（不包含 padding 、 border ）
+
+
+
+H5的几大特性：
+1.localStorage和sessionStorage离线缓存机制
+2.音频视频自由嵌入
+3.地理定位，随时随地分享位置
+4.Canvas绘图，提升移动平台的绘图能力
+5.专为移动平台定制的表单元素
+
+移动端开发常见的坑：
+
+
+
+判断一个属性是否定义:
+1.window['Tida'] 判断全局变量中包不包含Tida；
+2.in 运算符
+	var obj = {name:'jack'};
+	alert('name' in obj); // --> true
+	alert('toString' in obj); // --> true
+3.hasOwnProperty 方法
+var obj = {name:'jack'};
+obj.hasOwnProperty('name'); // --> true
+obj.hasOwnProperty('toString'); // --> false
+
+
+
+http://www.zuoyouxi.com/   H5小游戏开发
+
+
